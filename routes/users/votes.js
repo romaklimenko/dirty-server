@@ -43,7 +43,7 @@ async function getVotes(id, type) {
   return data;
 }
 
-router.get('/users/:username/votes/', async (req, res) => {
+router.get('/api/users/:username/votes/', async (req, res) => {
   try {
     let username = encodeURI(req.params.username);
 

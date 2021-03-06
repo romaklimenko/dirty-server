@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch')
 
-router.get('/domains/:domainPrefix/', async (req, res) => {
+router.get('/api/domains/:domainPrefix/', async (req, res) => {
   try {
     const domainPrefix = req.params.domainPrefix.toLocaleLowerCase();
     const domainInfo = await (await fetch(`https://d3.ru/api/domains/${domainPrefix}`)).json();
