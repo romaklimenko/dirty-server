@@ -44,7 +44,7 @@ async function getVotes(id, type) {
   return data;
 }
 
-router.get('/domains/:prefix/votes/', async (req, res) => {
+router.get('/api/domains/:prefix/votes/', async (req, res) => {
   try {
     let prefix = encodeURI(req.params.prefix);
 

@@ -2,26 +2,6 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 
-async function getCachedKarma(username) {
-  try {
-    const response = await fetch(`https://storage.googleapis.com/dirty-karma-cache/${username.toLowerCase()}.json`);
-    const json = await response.json();
-    return json.map(k => {
-      return {
-        vote: k.vote,
-        changed: k.changed,
-        user: {
-          login: k.to
-        },
-        from: k.from,
-        deleted: k.deleted,
-      }
-    })
-  } catch (error) {
-    return [];
-  }
-}
-
 async function getKarma(username) {
     let data = [];
     let page = 1;
@@ -69,17 +49,10 @@ async function getKarma(username) {
       }
     });
 
-    const cache = await getCachedKarma(username);
-
-    if (cache.length !== 0) {
-      data = data.concat(cache);
-      data.sort((a, b) => a.changed > b.changed ? 1 : -1);
-    }
-
     return data;
 }
 
-router.get('/users/:username/karma/', async (req, res) => {
+router.get('/api/users/:username/karma/', async (req, res) => {
     try {
         let username = encodeURI(req.params.username);
 

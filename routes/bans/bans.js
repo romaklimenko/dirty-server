@@ -69,7 +69,7 @@ const CACHE_DURATION_IN_MS = 1000 * 60 * 10;
 
 const cache = new Map();
 
-router.get('/lopata/:username/', async (req, res) => {
+router.get('/api/lopata/:username/', async (req, res) => {
     try {
       let username = encodeURI(req.params.username);
 

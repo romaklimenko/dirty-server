@@ -94,7 +94,7 @@ const activityMapper = a => {
 
 router.use(cache(process.env.CACHE_DURATION_IN_SEC || 60 * 60 * 24 * 1, 64))
 
-router.get('/users/:username/activities/', async (req, res) => {
+router.get('/api/users/:username/activities/', async (req, res) => {
     try {
         let user = encodeURI(req.params.username);
 

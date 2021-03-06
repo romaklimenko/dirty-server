@@ -43,7 +43,7 @@ async function getVotes(postId) {
   return data;
 }
 
-router.get('/posts/:postId/votes/', async (req, res) => {
+router.get('/api/posts/:postId/votes/', async (req, res) => {
   try {
     const postId = req.params.postId;
 

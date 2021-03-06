@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 const express = require('express')
 const router = express.Router()
 
-router.get('/posts/:postId/comments', async (req, res) => {
+router.get('/api/posts/:postId/comments', async (req, res) => {
   try {
     const postId = req.params.postId;
     const response = await fetch(`https://d3.ru/api/posts/${postId}/comments/`);
